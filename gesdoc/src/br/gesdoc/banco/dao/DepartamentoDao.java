@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.gesdoc.banco.ConnectionFactory;
+import br.gesdoc.banco.ConnectionFactoryPostgreSQL;
 import br.gesdoc.banco.modelo.Departamento;
 
 public class DepartamentoDao {
@@ -12,7 +12,7 @@ public class DepartamentoDao {
 	private Connection conexao;
 	
 	public DepartamentoDao(){
-		this.conexao = new ConnectionFactory().ObterConexao();
+		this.conexao = new ConnectionFactoryPostgreSQL().ObterConexao();
 	}
 	
 	public void inserirDepartamento(Departamento departamento){

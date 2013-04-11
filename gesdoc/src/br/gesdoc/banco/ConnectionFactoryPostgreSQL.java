@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class ConnectionFactory {
+public class ConnectionFactoryPostgreSQL {
 	
 	public Connection ObterConexao(){
 		String url = "jdbc:postgresql://portonb:5432/gesdoc";
