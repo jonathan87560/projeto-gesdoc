@@ -11,14 +11,14 @@
 		<link rel="stylesheet" href="../angularjs/css/departamento.css">
 	</head>
 	<body>
-		<div class="container" ng-controller="ListaComprasController">
+		<div class="container" ng-controller="DepartamentosController">
 			<div class="row">
 				<div class="page-header">
 					<h1>Departamento</h1>
 				</div>
 			</div>
 			<div class="row">
-				<table id="lista-compras" class="table table-striped">
+				<table id="departamentos" class="table table-striped">
 				<thead>
 				<tr>
 					<th>Código</th>
@@ -26,19 +26,19 @@
 				</tr>
 				</thead>
 		          	<tbody>
-	            		<tr ng-repeat="item in itens" class="selecionado-{{ item.selecionado }}">              				
-              				<td><strong>{{ item.id }}</strong></td>
-              				<td>{{ item.descricao }}</td>
-              				<td><button class="btn btn-danger" ng-click="excluirItem($index)">X</button></td>
+	            		<tr ng-repeat="departamento in departamentos" class="selecionado-{{ item.selecionado }}">              				
+              				<td><strong>{{ departamento.id }}</strong></td>
+              				<td>{{ departamento.descricao }}</td>
+              				<td><button class="btn btn-danger" ng-click="excluirDepartamento($index)">X</button></td>
             			</tr>
           			</tbody>
         			</table>
 			</div>
       			<div class="row">
         			<form class="form-inline" name="formItem">
-          				<input type="number" ng-model="item.id" placeholder="Código"  class="input-small"/>
-	          			<input type="text" ng-model="item.descricao" placeholder="Descrição"/>
-        	  			<button class="btn btn-primary" ng-click="adicionarItem()">Salvar</button>					
+          				<input type="number" ng-model="departamento.id" placeholder="Código"  class="input-small"/>
+	          			<input type="text" ng-model="departamento.descricao" placeholder="Descrição"/>
+        	  			<button class="btn btn-primary" ng-click="adicionarDepartamento()">Salvar</button>					
         			</form>
 	      		</div>
 		</div>
