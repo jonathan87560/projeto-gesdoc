@@ -1,0 +1,10 @@
+#lista-compras {
+	width: 460px;
+}
+#lista-compras td, #lista-compras th {
+	text-align: center;
+}
+.selecionado-true {
+	text-decoration: line-through;
+	color: red;
+}
