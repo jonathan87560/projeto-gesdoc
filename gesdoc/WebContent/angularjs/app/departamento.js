@@ -1,19 +1,19 @@
-function ListaComprasController($scope) {
-    $scope.itens = [
-	{id:1, descricao: 'Fiscal', selecionado: false},
+function DepartamentosController($scope) {
+    $scope.departamentos = [
+        {id:1, descricao: 'Fiscal', selecionado: false},
         {id:2, descricao: 'Compras', selecionado: false},
         {id:3, descricao: 'Recursos Humanos', selecionado: false}
     ];
 
-    $scope.adicionarItem = function () {
-        $scope.itens.push({id: $scope.item.id,
-			   descricao: $scope.item.descricao,                           
-                           selecionado: false});
+    $scope.adicionarDepartamento = function () {
+        $scope.departamentos.push({id: $scope.departamento.id,
+			   					   descricao: $scope.departamento.descricao,                           
+                                   selecionado: false});
 
-        $scope.item.id = $scope.item.descricao = '';
+        $scope.departamento.id = $scope.departamento.descricao = '';
     };
 
-    $scope.excluirItem = function (index) {
-	$scope.itens.splice( index,1);
+    $scope.excluirDepartamento = function (index) {
+	$scope.departamentos.splice( index,1);
     };
 }

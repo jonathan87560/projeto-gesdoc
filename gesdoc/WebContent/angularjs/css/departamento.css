@@ -1,7 +1,7 @@
-#lista-compras {
+#departamentos {
 	width: 460px;
 }
-#lista-compras td, #lista-compras th {
+#departamentos td, #departamento th {
 	text-align: center;
 }
 .selecionado-true {
