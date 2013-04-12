@@ -7,9 +7,19 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		Departamento departamento = new Departamento(1, "Fiscal");
+		//inserir
+		Departamento departamento = new Departamento(0, 1, "FISCAL");
 		
 		DepartamentoDao dao = new DepartamentoDao();
-		dao.inserirDepartamento(departamento);
+		dao.inserir(departamento);
+		
+		//alterar
+		departamento.setId( dao.obterIdPorCodigoDescricao(departamento) );		
+		departamento.setCodigo(2);
+		departamento.setDescricao("COMPRAS");
+		dao.alterar(departamento);
+		
+		//excluir
+		dao.excluir(departamento);		
 	}
 }
