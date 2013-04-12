@@ -2,16 +2,26 @@ package br.gesdoc.banco.modelo;
 
 public class Departamento {
 
+	private int id; 
 	private int codigo;
 	private String descricao;
 	
-	public Departamento(int codigo, String descricao)
+	public Departamento(int id, int codigo, String descricao)
 	{
 		super();
+		this.id = id;
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public int getCodigo() {
 		return codigo;
 	}
