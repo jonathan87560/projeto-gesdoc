@@ -618,7 +618,124 @@ alter table ARQUIVO_MORTO
 /
 
   
+-- Add/modify columns 
+alter table DEPARTAMENTO add SQ_DEPTO number;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DEPARTAMENTO
+  drop constraint PK_DEPARTAMENTO cascade;
+alter table DEPARTAMENTO
+  add constraint PK_DEPARTAMENTO primary key (SQ_DEPTO)
+  using index 
+  tablespace GESDOC
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+  
+/
 
+create or replace trigger TG_B_I_DEPARTAMENTO
+  before insert on DEPARTAMENTO  
+  for each row
+declare
+  -- local variables here
+ nPROX NUMBER;
+begin
+
+ SELECT SQ_DEPTO.NEXTVAL INTO nPROX
+  FROM DUAL;
+  
+ :NEW.SQ_DEPTO := nPROX;   
+
+end TG_B_I_DEPARTAMENTO;
+
+/
+
+-- Add/modify columns 
+alter table ARQUIVO_MORTO rename column COD_DEPTO to SQ_DEPTO;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table ARQUIVO_MORTO
+  add constraint FK_ARQUIVO_MORTO#DEPARTAMENTO foreign key (SQ_DEPTO)
+  references departamento (SQ_DEPTO);
+
+/
+
+-- Add/modify columns 
+alter table CENTRO_CUSTO rename column COD_DEPTO to SQ_DEPTO;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table CENTRO_CUSTO
+  add constraint FK_CENTRO_CUSTO#DEPARTAMENTO foreign key (SQ_DEPTO)
+  references departamento (SQ_DEPTO);
+
+/
+
+-- Add/modify columns 
+alter table DEPART_COLIGS rename column COD_DEPTO to SQ_DEPTO;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DEPART_COLIGS
+  drop constraint PK_DEPART_COLIGS cascade;
+alter table DEPART_COLIGS
+  add constraint PK_DEPART_COLIGS primary key (COD_EMPRESA, SQ_DEPTO, COD_DEP_COL)
+  using index 
+  tablespace GESDOC
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+alter table DEPART_COLIGS
+  add constraint FK_DEPART_COLIGS#DEPARTAMENTO foreign key (SQ_DEPTO)
+  references departamento (SQ_DEPTO);
+alter table DEPART_COLIGS
+  add constraint FK_DEPART_COLIGS#EMPRESA foreign key (COD_EMPRESA)
+  references empresa (COD_EMPRESA);
+
+/
+
+-- Add/modify columns 
+alter table DOCUMENTOS rename column COD_DEPTO to SQ_DEPTO;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DOCUMENTOS
+  add constraint FK_DOCUMENTO#DEPARTAMENTO foreign key (SQ_DEPTO)
+  references departamento (SQ_DEPTO);
+
+/
+
+-- Add/modify columns 
+alter table EMPRESTIMOS rename column COD_DEPTO to sq_DEPTO;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table EMPRESTIMOS
+  add constraint FK_EMPRESTIMOS foreign key (SQ_DEPTO)
+  references departamento (SQ_DEPTO);
+
+/
+
+-- Add/modify columns 
+alter table USU_WEBDEPTO rename column COD_DEPTO to SQ_DEPTO;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table USU_WEBDEPTO
+  add constraint FK_USU_WEBDEPTO#DEPARTAMENTO foreign key (SQ_DEPTO)
+  references departamento (SQ_DEPTO);
+  
+/
+
+-- Drop columns 
+alter table EMPRESTIMOS drop column NUM_PADRAO;
+
+/
+
+  
+
+  
 
   
   
