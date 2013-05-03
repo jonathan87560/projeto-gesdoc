@@ -61,7 +61,60 @@ public class GenericModelo {
 			e.printStackTrace();
 		}
 		return vValores;
-	}		
+	}
+	
+	private List<String> validadPermiss(String pEmpresa,
+			                       String pCodMenu,
+			                       String pCodUsuario){
+		
+		ConnectionFactoryOracle acessoDB = new ConnectionFactoryOracle();
+		ResultSet    vRs				 = null;
+		List<String> vPermiss            = new ArrayList<String>();
+		
+		String vSql  = "SELECT * FROM "+pEmpresa+".PRIVILEGIO WHERE COD_USUARIO = '"+
+						pCodUsuario+"' AND COD_MENU = '"+pCodMenu+"'";
+		
+		Connection conn = acessoDB.getConnection();
+	  	
+		try {
+			vRs = conn.createStatement().executeQuery(vSql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	  		
+	  	try {
+			while (vRs.next()){
+				
+				if (vRs.getString("SIT_INCLUI").equals("S")){
+					vPermiss.add("S");
+				}else{
+					vPermiss.add("N");
+				}
+				
+				if (vRs.getString("SIT_ALTERA").equals("S")){
+					vPermiss.add("S");
+				}else{
+					vPermiss.add("N");
+				}
+				
+				if (vRs.getString("SIT_EXCLUI").equals("S")){
+					vPermiss.add("S");
+				}else{
+					vPermiss.add("N");
+				}
+				
+				if (vRs.getString("SIT_CONSULTA").equals("S")){
+					vPermiss.add("S");
+				}else{
+					vPermiss.add("N");
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	  	
+	  	return vPermiss;
+	}
 	
 	public List<String> getCamposList(String pTabela,String pEmpresa){
 		return buscaCampos(pTabela,pEmpresa);
@@ -69,6 +122,12 @@ public class GenericModelo {
 
 	public List<String> getValores(String pTabela,ResultSet pRs){
 		return buscaValoresListResultSet(pTabela, pRs);
+	}
+	
+	public List<String> getPermiss(String pEmpresa,
+			                  String pCodMenu,
+			                  String pCodUsuario){
+		return validadPermiss(pEmpresa,pCodMenu,pCodUsuario);
 	}
 	
 }
