@@ -21,7 +21,8 @@
    
    dock.setIconsOffset(2);
    dock.setScreenAlign(euUP,0);
-   dock.addIcon(new Array({euImage:{image:"imagens/2143_128x128.png"}}));
+   dock.addIcon(new Array({euImage:{image:"imagens/2143_128x128.png"}}),
+		        {link:"http://eudock.jules.it"});
    dock.addIcon(new Array({euImage:{image:"imagens/2526_128x128.png"}}));
    dock.addIcon(new Array({euImage:{image:"imagens/6965_128x128.png"}}));
    dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
@@ -31,6 +32,7 @@
    dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
    dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
    dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
+   
 </script>
 </body>
 </html>
