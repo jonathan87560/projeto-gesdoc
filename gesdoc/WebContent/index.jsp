@@ -1,38 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Gesdoc</title>
-<script language="JavaScript1.3" src="javascript/euDock.2.0.js"></script>
-<script language="JavaScript1.3" src="javascript/euDock.Image.js"></script>
-</head>
-<body>
-<script>
-   euEnv.imageBasePath="javascript/";
-
-   var dock = new euDock();
-   
-   dock.setBar({
-        left      :{euImage:{image:"imagens/dockBg-l.png"}},
-        horizontal:{euImage:{image:"imagens/dockBg-c-o.gif"}},
-        right     :{euImage:{image:"imagens/dockBg-r.png"}}
-   	});
-   
-   dock.setIconsOffset(2);
-   dock.setScreenAlign(euUP,0);
-   dock.addIcon(new Array({euImage:{image:"imagens/2143_128x128.png"}}),
-		        {link:"http://eudock.jules.it"});
-   dock.addIcon(new Array({euImage:{image:"imagens/2526_128x128.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/6965_128x128.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   
-</script>
-</body>
+<html ng-app>
+	<head>
+		<title>GesDoc - Sistema de Gestão Documental</title>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="javascript/1.0.1/locastyle.css">
+        <script type="text/javascript" src="javascript/1.0.1/locastyle.js"></script>	
+	</head>
+	<body>
+	    <div class="marginAuto">
+	    	<br>
+	    	<br>
+			<form class="fCenter">
+        	<div class="control-group" align="center">
+            	<label><center><h2>Controle de Usuário</h2></center></label>
+            	<br>
+            	<input type="text" placeholder="Buscar pelo nome">
+            	<input type="submit" value="Buscar" class="btn">
+        	</div>
+        	</form>
+        
+        	<div class="boxActions">
+    	 		<input class="btn btn-primary" name="commit" type="submit" value="Atualizar Conta">
+    	 		<a href="#" class="btn" data-dismiss="modal">Cancelar</a>
+			</div>
+   		</div>
+	</body>
 </html>
