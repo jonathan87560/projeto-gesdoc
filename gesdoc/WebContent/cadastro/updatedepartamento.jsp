@@ -14,7 +14,7 @@
 		<div class="container" ng-controller="DepartamentosController">
 			<div class="row">
 				<div class="page-header">
-					<h1>Departamento</h1>
+					
 				</div>
 			</div>
 			<div class="row">
