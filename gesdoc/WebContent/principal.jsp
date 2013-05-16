@@ -6,8 +6,6 @@
 <title>Gesdoc - Gestão Documental</title>
  <link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
  <!--[if lte IE 6]><link rel="stylesheet" href="style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
- <script language="JavaScript1.3" src="javascript/euDock.2.0.js"></script>
- <script language="JavaScript1.3" src="javascript/euDock.Image.js"></script>
     <link href="windows8/Style/Interacao.css" rel="stylesheet" type="text/css" />
     <link href="windows8/Style/jq-metro.css" rel="stylesheet" type="text/css" />
     <script src="windows8/Style/jquery-1.7.2.min.js" type="text/javascript"></script>
@@ -26,31 +24,6 @@
 <body>
 <div id="wrapper">
  <header id="header">
- <script>
-   euEnv.imageBasePath="javascript/";
-
-   var dock = new euDock();
-   
-   dock.setBar({
-        left      :{euImage:{image:"imagens/dockBg-l.png"}},
-        horizontal:{euImage:{image:"imagens/dockBg-c-o.gif"}},
-        right     :{euImage:{image:"imagens/dockBg-r.png"}}
-   	});
-   
-   dock.setIconsOffset(2);
-   dock.setScreenAlign(euUP,0);
-   dock.addIcon(new Array({euImage:{image:"imagens/2143_128x128.png"}}),
-		        {link:"http://eudock.jules.it"});
-   dock.addIcon(new Array({euImage:{image:"imagens/2526_128x128.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/6965_128x128.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
-   dock.addIcon(new Array({euImage:{image:"imagens/cube.png"}}));
- </script>
  </header><!-- #header-->
 
 	<section id="middle">
